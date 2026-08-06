@@ -1,0 +1,634 @@
+:root {
+  --paper: #f8f6f1;
+  --paper-soft: #fcfbf8;
+  --paper-green: #e9f0ec;
+  --ink: #211f1b;
+  --ink-soft: #494640;
+  --muted: #74716a;
+  --accent: #315f55;
+  --accent-deep: #23473f;
+  --metadata: #a65f64;
+  --rule: rgba(49, 58, 54, 0.18);
+  --charcoal: #252521;
+  color-scheme: light;
+  font-synthesis: none;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--paper-soft);
+  color: var(--ink-soft);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body::before {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: url('./assets/paper-grain.png') repeat;
+  background-size: 192px 192px;
+  content: '';
+  mix-blend-mode: multiply;
+  opacity: 0.022;
+  pointer-events: none;
+}
+
+.MuiTypography-root,
+.MuiButton-root,
+.MuiTab-root {
+  letter-spacing: 0 !important;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-masthead {
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-soft);
+}
+
+.site-masthead .MuiContainer-root {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+}
+
+.masthead-wordmark {
+  color: var(--ink) !important;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif !important;
+  font-size: 1.18rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.paper-hero {
+  padding: 72px 0 70px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper-green);
+  color: var(--ink);
+  text-align: center;
+}
+
+.paper-hero-inner {
+  display: flex !important;
+  align-items: center;
+  flex-direction: column;
+}
+
+.paper-kicker {
+  color: var(--accent) !important;
+  font-size: 0.7rem !important;
+  font-weight: 750 !important;
+  line-height: 1.5 !important;
+}
+
+.paper-title {
+  max-width: 1080px;
+  margin-top: 20px !important;
+  color: var(--ink);
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif !important;
+  font-size: 3.45rem !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+}
+
+.paper-title > span {
+  color: var(--accent);
+}
+
+.hero-authors {
+  display: flex;
+  max-width: 980px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+  margin-top: 32px;
+}
+
+.hero-authors .MuiTypography-root {
+  color: var(--ink-soft);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero-authors .author-link {
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+
+.hero-authors .author-link:hover,
+.hero-authors .author-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.hero-authors .author-link:focus-visible,
+.paper-actions .MuiButton-root:focus-visible,
+.demo-tabs .MuiTab-root:focus-visible,
+.copy-button:focus-visible,
+.footer .MuiButton-root:focus-visible {
+  outline: 2px solid rgba(49, 95, 85, 0.42);
+  outline-offset: 3px;
+}
+
+.hero-authors sup,
+.hero-affiliations sup {
+  margin-left: 2px;
+  color: var(--metadata);
+  font-size: 0.7em;
+}
+
+.author-notes {
+  margin-top: 15px !important;
+  color: var(--muted);
+  font-size: 0.82rem !important;
+}
+
+.hero-affiliations {
+  display: grid;
+  gap: 7px;
+  margin-top: 19px;
+}
+
+.hero-affiliations .MuiTypography-root {
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+.paper-actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.paper-actions .MuiButton-root {
+  min-height: 44px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  text-transform: none;
+}
+
+.paper-actions .MuiButton-contained {
+  background: var(--accent);
+  color: var(--paper-soft);
+}
+
+.paper-actions .MuiButton-contained:hover {
+  background: var(--accent-deep);
+}
+
+.paper-actions .MuiButton-outlined {
+  border-color: rgba(49, 95, 85, 0.35);
+  color: var(--accent);
+}
+
+.paper-actions .MuiButton-outlined:hover {
+  border-color: var(--accent);
+  background: rgba(49, 95, 85, 0.06);
+}
+
+.paper-actions .code-coming-soon.Mui-disabled {
+  border-color: rgba(73, 70, 64, 0.24);
+  background: rgba(73, 70, 64, 0.04);
+  color: #8b8881;
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+.project-section {
+  padding: 92px 0;
+  border-bottom: 1px solid rgba(49, 58, 54, 0.08);
+}
+
+.section-white {
+  background: var(--paper-soft);
+}
+
+.section-tint {
+  background: var(--paper-soft);
+}
+
+.project-heading {
+  display: flex;
+  max-width: 850px;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto 44px;
+  text-align: center;
+}
+
+.project-heading .MuiTypography-overline {
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.project-heading .MuiTypography-h2 {
+  color: var(--ink);
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.results-section .project-heading .MuiTypography-h2 {
+  color: var(--accent);
+}
+
+.heading-rule {
+  width: 50px;
+  height: 1px;
+  margin-top: 17px;
+  background: var(--accent);
+}
+
+.project-heading-copy {
+  max-width: 760px;
+  margin-top: 18px !important;
+  color: var(--muted);
+  font-size: 0.98rem !important;
+  line-height: 1.7 !important;
+}
+
+.abstract-copy {
+  color: var(--ink-soft);
+  font-size: 1rem !important;
+  line-height: 1.85 !important;
+  text-align: justify;
+}
+
+.abstract-layout {
+  display: grid !important;
+  align-items: start;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+}
+
+.abstract-panel,
+.abstract-design-panel {
+  min-width: 0;
+}
+
+.abstract-layout .project-heading {
+  margin-bottom: 30px;
+}
+
+.abstract-design-figure {
+  max-width: 520px;
+}
+
+.paper-figure {
+  margin: 0 auto;
+}
+
+.paper-figure img {
+  width: 100%;
+  background: transparent;
+}
+
+.paper-figure figcaption {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.paper-figure figcaption strong {
+  color: var(--ink-soft);
+}
+
+.method-figure,
+.demo-figure {
+  max-width: 1080px;
+}
+
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+}
+
+.benchmark-item {
+  min-width: 0;
+  padding: 32px 34px;
+  border-left: 1px solid var(--rule);
+  text-align: center;
+}
+
+.benchmark-item:first-child {
+  border-left: 0;
+}
+
+.benchmark-item .benchmark-value.MuiTypography-body1 {
+  margin-bottom: 9px !important;
+  color: var(--accent);
+  font-family: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif !important;
+  font-size: 2.65rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+}
+
+.benchmark-item .MuiTypography-h3 {
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 750;
+}
+
+.benchmark-item .MuiTypography-body1 {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.demo-tabs {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.demo-tabs .MuiTabs-list {
+  justify-content: center;
+}
+
+.demo-tabs .MuiTab-root {
+  min-height: 50px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: none;
+}
+
+.demo-tabs .Mui-selected {
+  color: var(--accent) !important;
+}
+
+.demo-tabs .MuiTabs-indicator {
+  height: 2px;
+  background: var(--accent);
+}
+
+.citation-section {
+  background: var(--paper-soft);
+}
+
+.citation-wrap {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute !important;
+  z-index: 1;
+  top: 12px;
+  right: 12px;
+  border: 1px solid rgba(233, 240, 236, 0.25) !important;
+  background: #31312c !important;
+  color: #e6ebe7 !important;
+}
+
+.copy-button:hover {
+  background: #3b3b35 !important;
+}
+
+.bibtex {
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid rgba(49, 95, 85, 0.55);
+  border-radius: 4px;
+  background: var(--charcoal);
+  color: #e6ebe7;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 0.84rem;
+  line-height: 1.75;
+  padding: 30px;
+  white-space: pre;
+}
+
+.footer {
+  border-top: 1px solid var(--rule);
+  background: var(--paper-soft);
+  color: var(--muted);
+}
+
+.footer-inner {
+  display: flex !important;
+  min-height: 116px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.footer .MuiTypography-root {
+  font-size: 0.88rem;
+}
+
+.footer .MuiButton-root {
+  border-radius: 999px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  text-transform: none;
+}
+
+.footer .code-coming-soon.Mui-disabled {
+  color: #8b8881;
+  cursor: not-allowed;
+  pointer-events: auto;
+}
+
+@media (max-width: 900px) {
+  .paper-hero {
+    padding: 62px 0 60px;
+  }
+
+  .paper-title {
+    font-size: 2.8rem !important;
+  }
+
+  .project-section {
+    padding: 74px 0;
+  }
+
+  .abstract-layout {
+    grid-template-columns: 1fr;
+    gap: 66px;
+  }
+
+  .abstract-design-figure {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 760px) {
+  .benchmark-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benchmark-item,
+  .benchmark-item:first-child {
+    padding: 25px 0;
+    border-top: 1px solid var(--rule);
+    border-left: 0;
+  }
+
+  .benchmark-item:first-child {
+    border-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-masthead .MuiContainer-root {
+    min-height: 50px;
+  }
+
+  .masthead-wordmark {
+    font-size: 1.08rem !important;
+  }
+
+  .paper-hero {
+    padding: 30px 0 32px;
+  }
+
+  .paper-kicker {
+    max-width: 310px;
+    font-size: 0.66rem !important;
+  }
+
+  .paper-title {
+    margin-top: 15px !important;
+    font-size: 2rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-authors {
+    gap: 6px 13px;
+    margin-top: 20px;
+  }
+
+  .hero-authors .MuiTypography-root {
+    font-size: 0.86rem;
+  }
+
+  .author-notes {
+    margin-top: 10px !important;
+    font-size: 0.72rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .hero-affiliations {
+    gap: 5px;
+    margin-top: 12px;
+  }
+
+  .hero-affiliations .MuiTypography-root {
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .paper-actions {
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .paper-actions .MuiButton-root {
+    min-height: 42px;
+    font-size: 0.78rem;
+    padding: 7px 14px;
+  }
+
+  .project-section {
+    padding: 58px 0;
+  }
+
+  .project-heading {
+    margin-bottom: 32px;
+  }
+
+  .project-heading .MuiTypography-h2 {
+    font-size: 1.9rem;
+  }
+
+  .project-heading-copy {
+    margin-top: 15px !important;
+    font-size: 0.92rem !important;
+  }
+
+  .abstract-copy {
+    font-size: 0.94rem !important;
+    line-height: 1.75 !important;
+    text-align: left;
+  }
+
+  .paper-figure figcaption {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  .abstract-layout {
+    gap: 54px;
+  }
+
+  .benchmark-value {
+    font-size: 2.25rem !important;
+  }
+
+  .demo-tabs {
+    margin-right: -16px;
+    margin-left: -16px;
+  }
+
+  .demo-tabs .MuiTabs-list {
+    justify-content: flex-start;
+  }
+
+  .demo-figure img {
+    min-height: 205px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .bibtex {
+    margin-right: -16px;
+    margin-left: -16px;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    font-size: 0.73rem;
+    overflow-wrap: anywhere;
+    padding: 52px 16px 22px;
+    white-space: pre-wrap;
+  }
+
+  .copy-button {
+    top: 8px;
+    right: 0;
+  }
+
+  .footer-inner {
+    min-height: 150px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
