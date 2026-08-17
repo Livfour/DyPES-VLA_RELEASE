@@ -15,6 +15,7 @@ import {
   Check,
   Code2,
   Copy,
+  ExternalLink,
   FileText,
   Quote,
 } from 'lucide-react'
@@ -198,9 +199,19 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
                 variant="contained"
-                startIcon={<FileText size={18} />}
+                startIcon={<ExternalLink size={18} />}
               >
                 arXiv
+              </Button>
+              <Button
+                component="a"
+                href={asset('DyPES-VLA.pdf')}
+                target="_blank"
+                rel="noreferrer"
+                variant="outlined"
+                startIcon={<FileText size={18} />}
+              >
+                PDF
               </Button>
               <CodeComingSoon iconSize={18} variant="outlined" />
               <Button component="a" href="#bibtex" variant="outlined" startIcon={<Quote size={18} />}>
@@ -327,8 +338,17 @@ function App() {
         <Container maxWidth="lg" className="footer-inner">
           <Typography>© 2026 DyPES-VLA Authors · HKUST (GZ) &amp; COCO Matrix</Typography>
           <Stack direction="row" spacing={0.5}>
-            <Button component="a" href={arxivUrl} target="_blank" rel="noreferrer" startIcon={<FileText size={16} />}>
+            <Button component="a" href={arxivUrl} target="_blank" rel="noreferrer" startIcon={<ExternalLink size={16} />}>
               arXiv
+            </Button>
+            <Button
+              component="a"
+              href={asset('DyPES-VLA.pdf')}
+              target="_blank"
+              rel="noreferrer"
+              startIcon={<FileText size={16} />}
+            >
+              PDF
             </Button>
             <CodeComingSoon />
           </Stack>

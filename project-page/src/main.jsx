@@ -65,7 +65,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           minHeight: 42,
-          borderRadius: 6,
+          borderRadius: 4,
           boxShadow: 'none',
         },
       },

@@ -7,6 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { createServer } from 'vite'
 
 const app = readFileSync(new URL('../src/App.jsx', import.meta.url), 'utf8')
+const main = readFileSync(new URL('../src/main.jsx', import.meta.url), 'utf8')
 const styles = readFileSync(new URL('../src/styles.css', import.meta.url), 'utf8')
 
 test('renders the editorial masthead and sequential section indices', () => {
@@ -47,10 +48,13 @@ test('bundles a non-empty PNG grain asset', () => {
 
 test('links the official arXiv record and exposes a complete arXiv citation', () => {
   assert.match(app, /https:\/\/arxiv\.org\/abs\/2608\.06374/)
+  assert.match(app, /href=\{asset\('DyPES-VLA\.pdf'\)\}/)
   assert.match(app, /eprint=\{2608\.06374\}/)
   assert.match(app, /archivePrefix=\{arXiv\}/)
   assert.match(app, /primaryClass=\{cs\.RO\}/)
-  assert.doesNotMatch(app, /asset\('DyPES-VLA\.pdf'\)/)
+  assert.match(main, /MuiButton:[\s\S]*?borderRadius:\s*4/)
+  assert.match(styles, /\.paper-actions \.MuiButton-root\s*\{[^}]*border-radius:\s*4px/s)
+  assert.match(styles, /\.footer \.MuiButton-root\s*\{[^}]*border-radius:\s*4px/s)
 })
 
 test('renders code coming soon as disabled controls without links', async () => {
