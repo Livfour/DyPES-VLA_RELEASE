@@ -48,7 +48,8 @@ test('bundles a non-empty PNG grain asset', () => {
 
 test('links the official arXiv record and exposes a complete arXiv citation', () => {
   assert.match(app, /https:\/\/arxiv\.org\/abs\/2608\.06374/)
-  assert.match(app, /href=\{asset\('DyPES-VLA\.pdf'\)\}/)
+  assert.match(app, /https:\/\/arxiv\.org\/pdf\/2608\.06374/)
+  assert.doesNotMatch(app, /asset\('DyPES-VLA\.pdf'\)/)
   assert.match(app, /eprint=\{2608\.06374\}/)
   assert.match(app, /archivePrefix=\{arXiv\}/)
   assert.match(app, /primaryClass=\{cs\.RO\}/)

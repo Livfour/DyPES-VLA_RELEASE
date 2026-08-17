@@ -23,6 +23,7 @@ import {
 const base = import.meta.env.BASE_URL
 const asset = (path) => `${base}${path}`
 const arxivUrl = 'https://arxiv.org/abs/2608.06374'
+const arxivPdfUrl = 'https://arxiv.org/pdf/2608.06374'
 
 const authors = [
   { name: 'Junfeng Li', affiliation: 1, equal: true, url: 'https://livfour.github.io/' },
@@ -205,7 +206,7 @@ function App() {
               </Button>
               <Button
                 component="a"
-                href={asset('DyPES-VLA.pdf')}
+                href={arxivPdfUrl}
                 target="_blank"
                 rel="noreferrer"
                 variant="outlined"
@@ -343,7 +344,7 @@ function App() {
             </Button>
             <Button
               component="a"
-              href={asset('DyPES-VLA.pdf')}
+              href={arxivPdfUrl}
               target="_blank"
               rel="noreferrer"
               startIcon={<FileText size={16} />}
