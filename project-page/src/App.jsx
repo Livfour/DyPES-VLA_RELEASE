@@ -21,6 +21,7 @@ import {
 
 const base = import.meta.env.BASE_URL
 const asset = (path) => `${base}${path}`
+const arxivUrl = 'https://arxiv.org/abs/2608.06374'
 
 const authors = [
   { name: 'Junfeng Li', affiliation: 1, equal: true, url: 'https://livfour.github.io/' },
@@ -84,15 +85,14 @@ const demos = [
   },
 ]
 
-const bibtex = `@article{li2026dypesvla,
-  title   = {DyPES-VLA: Learning Shared Dynamics Priors and
-             Embodiment-Specific Control for Cross-Embodiment Manipulation},
-  author  = {Li, Junfeng and He, Junjie and Zhong, Zhide and Zheng, Yangyang
-             and Sheng, Pingyue and Dong, Jiayu and Li, Ruixin and Yan, Haodong
-             and Zhu, Jiaguan and Zhang, Tianran and Yu, Runze and Chen, Wen
-             and Yang, Liuqing and Gao, Yuxiang and Li, Haoang},
-  journal = {arXiv preprint},
-  year    = {2026}
+const bibtex = `@misc{li2026dypesvlalearningshareddynamics,
+  title={DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation},
+  author={Junfeng Li and Junjie He and Zhide Zhong and Yangyang Zheng and Pingyue Sheng and Jiayu Dong and Ruixin Li and Haodong Yan and Jiaguan Zhu and Tianran Zhang and Runze Yu and Wen Chen and Liuqing Yang and Yuxiang Gao and Haoang Li},
+  year={2026},
+  eprint={2608.06374},
+  archivePrefix={arXiv},
+  primaryClass={cs.RO},
+  url={https://arxiv.org/abs/2608.06374}
 }`
 
 function SectionHeading({ title, copy, eyebrow }) {
@@ -194,13 +194,13 @@ function App() {
             <Stack direction="row" className="paper-actions" useFlexGap>
               <Button
                 component="a"
-                href={asset('DyPES-VLA.pdf')}
+                href={arxivUrl}
                 target="_blank"
                 rel="noreferrer"
                 variant="contained"
                 startIcon={<FileText size={18} />}
               >
-                PDF
+                arXiv
               </Button>
               <CodeComingSoon iconSize={18} variant="outlined" />
               <Button component="a" href="#bibtex" variant="outlined" startIcon={<Quote size={18} />}>
@@ -231,8 +231,8 @@ function App() {
               <Box component="figure" className="paper-figure abstract-design-figure">
                 <img src={asset('assets/cross-embodiment.png')} alt="Cross-embodiment DyPES-VLA learning paradigm" />
                 <Typography component="figcaption">
-                  One predictive interface supports single-arm, dual-arm, and humanoid systems while preserving each
-                  embodiment&apos;s native control semantics.
+                  One predictive interface supports single-arm, dual-arm, and humanoid systems, while statically routed
+                  MoE experts learn embodiment-specific ways of acting directly in each robot&apos;s native control space.
                 </Typography>
               </Box>
             </Box>
@@ -327,8 +327,8 @@ function App() {
         <Container maxWidth="lg" className="footer-inner">
           <Typography>© 2026 DyPES-VLA Authors · HKUST (GZ) &amp; COCO Matrix</Typography>
           <Stack direction="row" spacing={0.5}>
-            <Button component="a" href={asset('DyPES-VLA.pdf')} startIcon={<FileText size={16} />}>
-              PDF
+            <Button component="a" href={arxivUrl} target="_blank" rel="noreferrer" startIcon={<FileText size={16} />}>
+              arXiv
             </Button>
             <CodeComingSoon />
           </Stack>

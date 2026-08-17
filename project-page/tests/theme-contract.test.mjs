@@ -45,6 +45,14 @@ test('bundles a non-empty PNG grain asset', () => {
   assert.deepEqual([...grain.subarray(0, 8)], [137, 80, 78, 71, 13, 10, 26, 10])
 })
 
+test('links the official arXiv record and exposes a complete arXiv citation', () => {
+  assert.match(app, /https:\/\/arxiv\.org\/abs\/2608\.06374/)
+  assert.match(app, /eprint=\{2608\.06374\}/)
+  assert.match(app, /archivePrefix=\{arXiv\}/)
+  assert.match(app, /primaryClass=\{cs\.RO\}/)
+  assert.doesNotMatch(app, /asset\('DyPES-VLA\.pdf'\)/)
+})
+
 test('renders code coming soon as disabled controls without links', async () => {
   const root = fileURLToPath(new URL('../', import.meta.url))
   const vite = await createServer({
